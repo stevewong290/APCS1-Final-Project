@@ -23,8 +23,31 @@ public class Othello{
 	board[x][y] = 1;
 	int a = x;
 	int b = y;
-	if(x > 1){
-	    captureup
+	if(x > 1 && data[x - 1][y] == -1){
+	    captureUp();
 	}
+	if(x < 6 && data[x + 1][y] == -1){
+	    captureDown();
+	}
+	if(y > 1 && data[x][y - 1] == -1){
+	    captureRight();
+	}
+	if(y < 6 && data[x][y + 1] == -1){
+	    captureleft();
+	}
+	// diagonals
+	if(x > 1 && y > 1 && data[x - 1][y - 1] == -1){
+	    captureUpAndLeft();
+	}
+	if(x < 6 && y > 1 && data[x + 1][y - 1] == -1){
+	    captureDownAndLeft();
+	}
+	if(x > 1 && y < 7 && data[x - 1][y + 1] == -1){
+	    captureUpAndRight();
+	}
+	if(x < 6 && y < 7 && data[x + 1][y + 1] == -1){
+	    captureDownAndRight();
+	}
+
     }
 }
