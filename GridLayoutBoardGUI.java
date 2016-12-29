@@ -1,0 +1,66 @@
+import java.awt.GridLayout;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JTextArea;
+
+ 
+    
+public class GridLayoutBoardGUI {
+       	    
+    private static JButton[] arrayBtn;    
+	    
+    public static void main(String[] args) {
+	    	
+	// the frame that contains the components
+		
+	JFrame frame = new JFrame("GridLayoutTest from JCG");
+	    
+	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	    
+	// set the size of the frame
+		
+	frame.setSize(350, 350);
+	    
+        
+		
+	// set the rows and cols of the grid, as well the distances between them
+		
+	GridLayout grid = new GridLayout(8, 8, 0, 0);
+	    
+	// what layout we want to use for our frame
+		
+	frame.setLayout(grid);
+	    
+         
+		
+	// add a text field with a specified text to the frame
+	       
+	    
+         
+		
+	// add buttons to the frame
+		
+		
+	arrayBtn = new JButton[64];
+	    
+	// add JButtons dynamically
+		
+	for(int i=0; i < arrayBtn.length; i++) {
+		    
+	    arrayBtn[i] = new JButton(Integer.toString(i));
+		    
+	    frame.add(arrayBtn[i]);
+		    
+	}
+
+        
+
+	frame.setVisible(true);
+
+ 
+
+    }
+
+ 
+
+}

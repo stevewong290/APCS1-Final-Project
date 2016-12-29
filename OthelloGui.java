@@ -1,9 +1,6 @@
-package layout;
+/*package layout;
  
-/*
- * BorderLayoutDemo.java
- *
- */
+
 import javax.swing.*;
 import java.awt.BorderLayout;
 import java.awt.Container;
@@ -43,11 +40,7 @@ public class OthelloGui {
 	pane.add(button, BorderLayout.LINE_END);
     }
      
-    /**
-     * Create the GUI and show it.  For thread safety,
-     * this method should be invoked from the
-     * event dispatch thread.
-     */
+   
     private static void createAndShowGUI() {
          
 	//Create and set up the window.
@@ -63,7 +56,7 @@ public class OthelloGui {
     }
      
     public static void main(String[] args) {
-	/* Use an appropriate Look and Feel */
+	 Use an appropriate Look and Feel 
 	try {
 	    //UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
 	    UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
@@ -76,7 +69,7 @@ public class OthelloGui {
 	} catch (ClassNotFoundException ex) {
 	    ex.printStackTrace();
 	}
-	/* Turn off metal's use bold fonts */
+	Turn off metal's use bold fonts 
 	UIManager.put("swing.boldMetal", Boolean.FALSE);
          
 	//Schedule a job for the event dispatch thread:
@@ -89,3 +82,50 @@ public class OthelloGui {
     }
 }
 
+*/
+
+import javax.swing.*;
+import java.awt.*;
+public class OthelloGui extends JFrame {
+    private Container pane;
+
+    private JButton b;
+    private JButton l;
+    private JButton t;
+    private JButton c;
+ 
+    //CONSTRUCTOR SETS EVERYTHING UP
+    public OthelloGui() {
+	this.setTitle("The Othello Game");
+	this.setSize(600,400);
+	this.setLocation(100,100);
+	this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+    
+	pane = this.getContentPane();
+	pane.setLayout(new BorderLayout());  //NOTE!! THIS CAN BE CHANGED (see below)
+    
+	JButton button = new JButton("Button 1 (PAGE_START)");
+	pane.add(button, BorderLayout.PAGE_START);
+         
+	//Make the center component big, since that's the
+	//typical usage of BorderLayout.
+	button = new JButton("Button 2 (CENTER)");
+	button.setPreferredSize(new Dimension(200, 100));
+	pane.add(button, BorderLayout.CENTER);
+         
+	button = new JButton("Button 3 (LINE_START)");
+	pane.add(button, BorderLayout.LINE_START);
+         
+	button = new JButton("Long-Named Button 4 (PAGE_END)");
+	pane.add(button, BorderLayout.PAGE_END);
+         
+	button = new JButton("5 (LINE_END)");
+        pane.add(button, BorderLayout.LINE_END);
+    }
+
+    //MAIN JUST INSTANTIATES + MAKE VISIBLE
+    public static void main(String[] args) {
+	OthelloGui g = new OthelloGui();
+	g.setVisible(true);
+    }
+}
