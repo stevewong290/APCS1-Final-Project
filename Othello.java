@@ -19,6 +19,34 @@ public class Othello{
 	board[4][3] = 1;
 	board[4][4] = -1;
     }
+    private void blackMoves(int x,int y){
+	board[x][y] = -1;
+	if(x > 1 && board[x - 1][y] == 1){
+	    captureUp(x,y);
+	}
+	if(x < 6 && board[x + 1][y] == 1){
+	    captureDown(x,y);
+	}
+	if(y > 1 && board[x][y - 1] == 1){
+	    captureRight(x,y);
+	}
+	if(y < 6 && board[x][y + 1] == 1){
+	    captureLeft(x,y);
+	}
+	// diagonals
+	if(x > 1 && y > 1 && board[x - 1][y - 1] == 1){
+	    captureUpAndLeft(x,y);
+	}
+	if(x < 6 && y > 1 && board[x + 1][y - 1] == 1){
+	    captureDownAndLeft(x,y);
+	}
+	if(x > 1 && y < 7 && board[x - 1][y + 1] == 1){
+	    captureUpAndRight(x,y);
+	}
+	if(x < 6 && y < 7 && board[x + 1][y + 1] == 1){
+	    captureDownAndRight(x,y);
+	}
+    }
     private void whiteMoves(int x,int y){
 	board[x][y] = 1;
 	if(x > 1 && board[x - 1][y] == -1){
@@ -58,7 +86,7 @@ public class Othello{
 	}
 	if(board[a][y] == val){
 	    for(int i = a; i > x && board[i][y] == val * -1; i--){
-		board[i][y] = val* -1;
+		board[i][y] = val;
 	    }
 	}
     }
@@ -73,7 +101,7 @@ public class Othello{
 	}
 	if(board[a][y] == val){
 	    for(int i = a; i < x && board[i][y] == val * -1; i++){
-		board[i][y] = val* -1;
+		board[i][y] = val;
 	    }
 	}
     }
@@ -84,11 +112,10 @@ public class Othello{
 	    if(board[x][a] == 0){
 		break;
 	    }
-	    
 	}
 	if(board[x][a] == val){
 	    for(int i = a; i > x && board[x][i] == val * -1; i--){
-		board[x][i] = val* -1;
+		board[x][i] = val;
 	    }
 	}
     }
@@ -99,11 +126,66 @@ public class Othello{
 	    if(board[x][a] == 0){
 		break;
 	    }
-	    
 	}
 	if(board[x][a] == val){
 	    for(int i = a; i < x && board[x][i] == val * -1; i++){
-		board[x][i] = val* -1;
+		board[x][i] = val;
+	    }
+	}
+    }
+    public void captureDownAndRight(int x, int y){
+	int val = board[x][y];
+	int a;
+        for(a = 1;a + y <= 7 && a + x <= 7 && board[x + a][y + a] == val * -1; a++){
+	    if(board[x + a][y + a] == 0){
+		break;
+	    } 
+	}
+	if(board[x + a][y + a] == val){
+	    for(int i = a;board[x + i][y + i] == val * -1; i--){
+		board[x + i][y + i] = val;
+	    }
+	}
+    }
+    public void captureDownAndLeft(int x, int y){
+	int val = board[x][y];
+	int a;
+        for(a = 1;y - a >= 0 && a + x <= 7 && board[x + a][y - a] == val * -1; a++){
+	    if(board[x + a][y - a] == 0){
+		break;
+	    } 
+	}
+	if(board[x + a][y - a] == val){
+	    for(int i = a;board[x + i][y - i] == val * -1; i--){
+		board[x + i][y - i] = val;
+	    }
+	}
+    }
+    public void captureUpAndLeft(int x, int y){
+	int val = board[x][y];
+	int a;
+        for(a = 1;y - a >= 0 && x - a >= 0 && board[x - a][y - a] == val * -1; a++){
+	    if(board[x - a][y - a] == 0){
+		break;
+	    } 
+	}
+	if(board[x - a][y - a] == val){
+	    for(int i = a;board[x - i][y - i] == val * -1; i--){
+		board[x - i][y - i] = val;
+	    }
+	}
+    }
+    public void captureUpAndRight(int x, int y){
+	int val = board[x][y];
+	int a;
+        for(a = 1;y + a <= 7 && x - a >= 0 && board[x - a][y + a] == val * -1; a++){
+	    if(board[x - a][y + a] == 0){
+		break;
+	    } 
+	}
+	if(board[x - a][y + a] == val){
+	    for(int i = a;board[x - i][y - i] == val * -1; i--){
+		board[x - i][y + i] = val;
 	    }
 	}
     }
