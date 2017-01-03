@@ -189,5 +189,21 @@ public class Othello{
 	    }
 	}
     }
+    public string toString(){
+	String s = "";
+	for(int x = 0;x < board.length; x ++){
+	    for (int y = 0; y < board[x].length; y ++){
+		s += board[x][y];
+		s +=" ";
+	    }
+	    s += "\n"
+	}
+    }
+    public static void main(String[] args){
+	Othello a = new Othello();
+	a.whiteMoves(5,6);
+	a.blackMoves(4,6);
+	System.out.println(a);
+    }
 }
     
