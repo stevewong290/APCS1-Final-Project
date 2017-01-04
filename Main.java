@@ -73,6 +73,7 @@ public class Main extends JFrame {
 	pane.add(getHeader(), BorderLayout.NORTH);
 	pane.add(getCheckBox(), BorderLayout.CENTER);
 	pane.add(getCheckBox2(), BorderLayout.EAST);
+	pane.add(getCheckBox3(), BorderLayout.WEST);
 	pane.add(getButtonPanel(), BorderLayout.SOUTH);
     }
 
@@ -84,12 +85,16 @@ public class Main extends JFrame {
 
     
     protected JComponent getCheckBox() {
-	return new JCheckBox("White Goes First");
+	return new JCheckBox("Random");
     }
 
     protected JComponent getCheckBox2() {
 	return new JCheckBox("Black Goes First");
     
+    }
+
+    protected JComponent getCheckBox3() {
+	return new JCheckBox("White Goes First");
     }
     protected JComponent getButtonPanel() {
 	JPanel inner = new JPanel();
