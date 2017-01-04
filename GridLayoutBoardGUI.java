@@ -19,7 +19,7 @@ public class GridLayoutBoardGUI {
 	    
 	// set the size of the frame
 		
-	frame.setSize(350, 350);
+	frame.setSize(600, 600);
 	    
         
 		
