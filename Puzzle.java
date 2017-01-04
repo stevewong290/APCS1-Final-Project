@@ -9,6 +9,12 @@ public class Puzzle extends JFrame {
 
     private static Color OthelloBoard;	
 
+     public void Color(int r, int g, int b) {
+
+       Color OthelloBoard = new Color(0, 102, 0);
+
+    }	
+
     private static JButton[] arrayBtn;  
 
     public Puzzle(){
@@ -61,7 +67,7 @@ public class Puzzle extends JFrame {
 	for(int i=0; i < arrayBtn.length; i++) {
 		    
 	    arrayBtn[i] = new JButton(Integer.toString(i));
-	    arrayBtn[i].setBackground(Color.OthelloBoard);
+	    arrayBtn[i].setBackground(OthelloBoard);
 	    arrayBtn[i].setOpaque(true);
 	    panel1.add(arrayBtn[i]);
 	    
