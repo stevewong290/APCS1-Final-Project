@@ -1,9 +1,16 @@
 public class Othello{
     private int[][] board = new int[8][8];
     private int turns, whites, blacks, counter;
+    //private String first;
     public Othello(){
 	restartBoard();
     }
+    /* private void turn(){
+    	if (first == black){
+      }
+      else{
+	}
+    }*/
     private void restartBoard(){
 	turns = 1;
 	whites = 2;
@@ -189,20 +196,22 @@ public class Othello{
 	    }
 	}
     }
-    public string toString(){
+    public String toString(){
 	String s = "";
 	for(int x = 0;x < board.length; x ++){
 	    for (int y = 0; y < board[x].length; y ++){
 		s += board[x][y];
 		s +=" ";
 	    }
-	    s += "\n"
+	    s += "\n";
 	}
+	return s;
     }
     public static void main(String[] args){
 	Othello a = new Othello();
 	a.whiteMoves(5,6);
 	a.blackMoves(4,6);
+	a.whiteMoves(3,6);
 	System.out.println(a);
     }
 }
