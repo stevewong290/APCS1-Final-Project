@@ -45,20 +45,15 @@
   }
 */
 
-import java.awt.BorderLayout;
-import java.awt.Container;
-import java.awt.Font;
-import java.awt.GridLayout;
-
-import javax.swing.JButton;
-import javax.swing.JComponent;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextArea;
-import javax.swing.JCheckBox;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 
 public class Main extends JFrame {
+    static String WhiteGoesFirstString = "White Goes First";
+    static String BlackGoesFirstString = "Black Goes First";
+    static String RandomString = "Random";
+
 
     public static void main(String[] args) {
 	Main e = new Main();
@@ -71,9 +66,7 @@ public class Main extends JFrame {
 	Container pane = getContentPane();
 	pane.setLayout(new BorderLayout());
 	pane.add(getHeader(), BorderLayout.NORTH);
-	pane.add(getCheckBox(), BorderLayout.CENTER);
-	pane.add(getCheckBox2(), BorderLayout.EAST);
-	pane.add(getCheckBox3(), BorderLayout.WEST);
+	pane.add(getRadioButton(), BorderLayout.CENTER);
 	pane.add(getButtonPanel(), BorderLayout.SOUTH);
     }
 
@@ -84,18 +77,53 @@ public class Main extends JFrame {
     }
 
     
-    protected JComponent getCheckBox() {
-	return new JCheckBox("Random");
-    }
+	protected JComponent getRadioButton() {
+	return new JRadioButton("White Goes First");
+	}
 
-    protected JComponent getCheckBox2() {
-	return new JCheckBox("Black Goes First");
+    /*     protected JComponent getRadioButton1() {
+	return new JRadioButton("White Goes First");
+	}
+
+	protected JComponent getRadioButton2() {
+	return new JRadioButton("Black Goes First");
+	}
+    */
     
+  
+ 
+    /*
+    protected JComponent getGroup() {
+	JRadioButton whiteGoesFirstButton = new JRadioButton(WhiteGoesFirstString);
+	whiteGoesFirstButton.setMnemonic(KeyEvent.VK_W);
+	whiteGoesFirstButton.setActionCommand(WhiteGoesFirstString);
+	whiteGoesFirstButton.setSelected(true);
+ 
+	JRadioButton randomButton = new JRadioButton(RandomString);
+	randomButton.setMnemonic(KeyEvent.VK_C);
+	randomButton.setActionCommand(RandomString);
+ 
+	JRadioButton blackGoesFirstButton = new JRadioButton(BlackGoesFirstString);
+	blackGoesFirstButton.setMnemonic(KeyEvent.VK_D);
+	blackGoesFirstButton.setActionCommand(BlackGoesFirstString);
+	JButtonGroup group = new JButtonGroup();
+        group.add(whiteGoesFirstButton);
+        group.add(randomButton);
+        group.add(blackGoesFirstButton);
+	return group;
     }
+    */
 
-    protected JComponent getCheckBox3() {
-	return new JCheckBox("White Goes First");
-    }
+    /*   protected JComponent getCheckBox2() {
+	 return new JCheckBox("Black Goes First");
+    
+	 }
+
+	 protected JComponent getCheckBox3() {
+	 return new JCheckBox("White Goes First");
+	 }
+
+    */
     protected JComponent getButtonPanel() {
 	JPanel inner = new JPanel();
 	inner.setLayout(new GridLayout(1, 2, 10, 0));
