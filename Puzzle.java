@@ -67,7 +67,7 @@ public class Puzzle extends JFrame {
 	for(int i=0; i < arrayBtn.length; i++) {
 		    
 	    arrayBtn[i] = new JButton(Integer.toString(i));
-	    arrayBtn[i].setBackground(OthelloBoard);
+	    arrayBtn[i].setBackground(Color.GREEN);
 	    arrayBtn[i].setOpaque(true);
 	    panel1.add(arrayBtn[i]);
 	    
