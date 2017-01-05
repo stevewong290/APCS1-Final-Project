@@ -10,7 +10,7 @@ javac public class Othello{
        if (first == black){
        }
        else{
-       }
+       }}
        }*/
     private void highlight(){
 	if(first =="black"){
