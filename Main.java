@@ -66,7 +66,7 @@ public class Main extends JFrame {
 	Container pane = getContentPane();
 	pane.setLayout(new BorderLayout());
 	pane.add(getHeader(), BorderLayout.NORTH);
-	pane.add(getGroup(), BorderLayout.CENTER);
+	pane.add(getRadioButton(), BorderLayout.CENTER);
 	pane.add(getButtonPanel(), BorderLayout.SOUTH);
     }
 
@@ -76,12 +76,12 @@ public class Main extends JFrame {
 	return label;
     }
 
-    /*  
+    
 	protected JComponent getRadioButton() {
-	return new JRadioButton("Random");
+	return new JRadioButton("White Goes First");
 	}
 
-        protected JComponent getRadioButton1() {
+    /*     protected JComponent getRadioButton1() {
 	return new JRadioButton("White Goes First");
 	}
 
@@ -92,7 +92,7 @@ public class Main extends JFrame {
     
   
  
-    
+    /*
     protected JComponent getGroup() {
 	JRadioButton whiteGoesFirstButton = new JRadioButton(WhiteGoesFirstString);
 	whiteGoesFirstButton.setMnemonic(KeyEvent.VK_W);
@@ -112,7 +112,7 @@ public class Main extends JFrame {
         group.add(blackGoesFirstButton);
 	return group;
     }
-    
+    */
 
     /*   protected JComponent getCheckBox2() {
 	 return new JCheckBox("Black Goes First");
