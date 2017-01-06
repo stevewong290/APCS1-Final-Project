@@ -60,8 +60,6 @@ public class Puzzle extends JFrame {
 		
 	arrayBtn = new JButton[64];
 		
-	// add JButtons dynamically
-		
 	for(int i=0; i < arrayBtn.length; i++) {
 		    
 	    arrayBtn[i] = new JButton(Integer.toString(i));
