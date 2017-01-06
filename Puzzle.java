@@ -39,7 +39,7 @@ public class Puzzle extends JFrame {
 
 	JButton but2  = new JButton("SOUTH");
 	
-	JButton but3  = new JButton("EAST");
+	JPanel panel3  = new JPanel();
 
 	JButton but4  = new JButton("WEST");
 
@@ -47,7 +47,7 @@ public class Puzzle extends JFrame {
         this.add(panel1,BorderLayout.CENTER);
 	this.add(panel2, BorderLayout.NORTH);
 	this.add(but2, BorderLayout.SOUTH);
-	this.add(but3, BorderLayout.EAST);
+	this.add(panel3, BorderLayout.EAST);
 	this.add(but4, BorderLayout.WEST);
 
         // set layout of panel1
@@ -73,19 +73,28 @@ public class Puzzle extends JFrame {
 
 
 	panel2.setLayout(new FlowLayout());
-	panel2.setPreferredSize(new Dimension(1080, 1080));
+	panel2.setPreferredSize(new Dimension(500, 30));
 
 	JButton button1 = new JButton("White Goes First");
 	JButton button2 = new JButton("Random");
 	JButton button3 = new JButton("Black Goes First");
-	button1.setPreferredSize(new Dimension(100,100));
-	button2.setPreferredSize(new Dimension(100,100));
-	button3.setPreferredSize(new Dimension(100,100));
-	panel2.add(button1, FlowLayout.LEADING);
-	panel2.add(button2, FlowLayout.CENTER);
-	panel2.add(button3, FlowLayout.TRAILING);
-	panel2.add(button1, FlowLayout.LEADING);
-	panel2.add(button1, FlowLayout.LEADING);
+	button1.setPreferredSize(new Dimension(300,20));
+	button2.setPreferredSize(new Dimension(300,20));
+	button3.setPreferredSize(new Dimension(300,20));
+	panel2.add(button1);
+	panel2.add(button2);
+	panel2.add(button3);
+	
+
+	panel3.setLayout(new BorderLayout());
+	JLabel textarea1 = new JLabel("Black Pieces");
+	JLabel textarea2 = new JLabel("White Pieces");
+	JLabel textarea3 = new JLabel("Turns");
+   
+	panel3.add(textarea1, BorderLayout.NORTH);
+	panel3.add(textarea2, BorderLayout.CENTER);
+	panel3.add(textarea3, BorderLayout.SOUTH);
+
 	
     }
     public static void main(String[] args) {
