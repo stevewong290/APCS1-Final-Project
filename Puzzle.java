@@ -92,8 +92,14 @@ public class Puzzle extends JFrame implements ActionListener{
 
 	panel3.setLayout(new BorderLayout());
 	JLabel textarea1 = new JLabel("Black Pieces");
+	textarea1.addActionListener(this);
+	textarea1.addActionCommand("changeblackcount");
 	JLabel textarea2 = new JLabel("White Pieces");
+	textarea2.addActionListener(this);
+	textarea2.addActionCommand("changewhitecount");
 	JLabel textarea3 = new JLabel("Turns");
+	textarea3.addActionListener(this);
+	textarea3.addActionCommand("changeturncounter");
    
 	panel3.add(textarea1, BorderLayout.NORTH);
 	panel3.add(textarea2, BorderLayout.CENTER);
@@ -109,6 +115,8 @@ public class Puzzle extends JFrame implements ActionListener{
 	}
 	if(event.equals("Green")){
 	    arrayBtn[i].setBackground(Color.GREEN);
+	}
+	if(event.equals("changeblackcount")){
 	}
     }
     public static void main(String[] args) {
