@@ -7,7 +7,7 @@ import java.awt.event.*;
 public class Puzzle extends JFrame implements ActionListener{
     private int[][] board = new int[8][8];
     private boolean[][] highlighter = new boolean[8][8];
-    private int turns, whites, blacks, counter, empty;
+    private int turn, white, black, counter, empty;
     private String first = black;
     /* private static Color OthelloBoard;	
 
