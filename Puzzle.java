@@ -1,9 +1,10 @@
 import javax.swing.*;     
 import java.awt.*;
 import java.awt.Dimension;
+import java.awt.event.*;
 
 
-public class Puzzle extends JFrame {
+public class Puzzle extends JFrame implements ActionListener{
 
     private static Color OthelloBoard;	
 
@@ -11,7 +12,9 @@ public class Puzzle extends JFrame {
 
        Color OthelloBoard = new Color(0, 102, 0);
 
-    }	
+    }
+
+    
 
     private static JButton[] arrayBtn;  
 
@@ -38,7 +41,8 @@ public class Puzzle extends JFrame {
         JPanel panel2 = new JPanel();
 
 	JButton but2  = new JButton("SOUTH");
-	
+	//	but2.addActionLister(this);
+	//	but2.setActionCommand("yellow");
 	JPanel panel3  = new JPanel();
 
 	JButton but4  = new JButton("WEST");
@@ -65,6 +69,8 @@ public class Puzzle extends JFrame {
 	    arrayBtn[i] = new JButton(Integer.toString(i));
 	    arrayBtn[i].setBackground(Color.GREEN);
 	    arrayBtn[i].setOpaque(true);
+	    arrayBtn[i].addActionListener(this);
+	    arrayBtn[i].setActionCommand("yellow");
 	    panel1.add(arrayBtn[i]);
 	    
 	}
@@ -95,6 +101,16 @@ public class Puzzle extends JFrame {
 
 	
     }
+
+    public void actionPerformed(ActionEvent e){
+	String event = e.getActionCommand();
+	if(event.equals("Yellow")){
+	    arrayBtn[i].setBackground(Color.YELLOW);
+	}
+	if(event.equals("Green")){
+	    arrayBtn[i].setBackground(Color.GREEN);
+	}
+    }
     public static void main(String[] args) {
 	Puzzle p = new Puzzle();
 	p.setVisible(true);
@@ -108,9 +124,6 @@ public class Puzzle extends JFrame {
 
 /*
  public void Color(int r, int g, int b) {
-
        OthelloBoard = new Color(0, 102, 0);
-
     }	
-
 */
