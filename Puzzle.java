@@ -5,14 +5,18 @@ import java.awt.event.*;
 
 
 public class Puzzle extends JFrame implements ActionListener{
-
-    private static Color OthelloBoard;	
+    private int[][] board = new int[8][8];
+    private boolean[][] highlighter = new boolean[8][8];
+    private int turn, white, black, counter, empty;
+    private String first = black;
+    /* private static Color OthelloBoard;	
 
      public void Color(int r, int g, int b) {
 
        Color OthelloBoard = new Color(0, 102, 0);
 
     }
+    */
 
     
 
@@ -91,13 +95,13 @@ public class Puzzle extends JFrame implements ActionListener{
 	
 
 	panel3.setLayout(new BorderLayout());
-	JLabel textarea1 = new JLabel("Black Pieces");
+	JLabel textarea1 = new JLabel("Black Pieces: " + blacks);
 	textarea1.addActionListener(this);
 	textarea1.addActionCommand("changeblackcount");
-	JLabel textarea2 = new JLabel("White Pieces");
+	JLabel textarea2 = new JLabel("White Pieces: " + whites);
 	textarea2.addActionListener(this);
 	textarea2.addActionCommand("changewhitecount");
-	JLabel textarea3 = new JLabel("Turns");
+	JLabel textarea3 = new JLabel("Turns: " + turns);
 	textarea3.addActionListener(this);
 	textarea3.addActionCommand("changeturncounter");
    
@@ -117,8 +121,29 @@ public class Puzzle extends JFrame implements ActionListener{
 	    arrayBtn[i].setBackground(Color.GREEN);
 	}
 	if(event.equals("changeblackcount")){
+	    blacks += 1
+	}
+	if(event.equals("changewhitecount")){
+	    whites += 1
+	}
+	if(event.equals("changeturncounter")){
+	    turns += 1
 	}
     }
+    private void endGame(){
+	if(white == 0 || black == 0|| counter == 2 || empty == 0){
+	    if (black > white){
+		System.out.println("black Wins");
+	    }
+	    else if(black == white){
+		System.out.println("tied");
+	    }
+	    else{
+		System.out.println("white wins");
+	    }
+	}
+    } 
+
     public static void main(String[] args) {
 	Puzzle p = new Puzzle();
 	p.setVisible(true);
