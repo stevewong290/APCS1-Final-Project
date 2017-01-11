@@ -131,7 +131,6 @@ public class Othello{
 	}
 	if(board[a][y] == 0){
 	    highlighter[a][y] = true;
-      System.out.println('1');
 	}
     }
     public void checkUp(int x, int y){
