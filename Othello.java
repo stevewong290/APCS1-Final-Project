@@ -13,12 +13,16 @@ public class Othello{
 	    }
 	    else{
 		System.out.println("white wins");
-	    }
-	}
-    }    
-    public Othello(){
-	restartBoard();
+        }
     }
+    }
+    public Othello(){
+	restartBoard("blacks");
+    }    
+    /* public Othello(){
+       restartBoard();
+       }
+    */
     /* private void turn(){
        if (first == black){
        }
@@ -26,7 +30,12 @@ public class Othello{
        }}
        }*/
     private void highlight(){
-	if(first =="black"){
+      	for(int a = 0; a <board.length;a++){
+	    for(int b = 0; b < board[a].length;b++){
+		highlighter[a][b] = false;
+	    }
+        }
+	if(first =="blacks"){
 	    if(turn % 2 == 1){
 		for(int x = 0; x < 8; x++){
 		    for(int y = 0; y < 8; y++){
@@ -39,7 +48,7 @@ public class Othello{
 	    else{
 		for(int x = 0; x < 8; x++){
 		    for(int y = 0; y < 8; y++){
-			if (board[x][y] == -1){
+			if (board[x][y] == 1){
 			    check(x,y);
 			}
 		    }
@@ -47,7 +56,7 @@ public class Othello{
 	    }
 	}
 	else{
-	    if(turn % 2 == 0){
+	    if(turn % 2 == 1){
 		for(int x = 0; x < 8; x++){
 		    for(int y = 0; y < 8; y++){
 			if (board[x][y] == -1){
@@ -59,7 +68,7 @@ public class Othello{
 	    else{
 		for(int x = 0; x < 8; x++){
 		    for(int y = 0; y < 8; y++){
-			if (board[x][y] == -1){
+			if (board[x][y] == 1){
 			    check(x,y);
 			}
 		    }
@@ -84,11 +93,6 @@ public class Othello{
 	return false;
     }
     private void check(int x, int y){
-	for(int x = 0; x <board.length;x++){
-	    for(int y = 0; y < board[x].length;y++){
-		board[x][y] = 0;
-		highlighter[x][y] = false;
-	    }
 	int val = board[x][y];
 	if(x > 1 && board[x - 1][y] == val * -1){
 	    checkUp(x,y);
@@ -97,10 +101,10 @@ public class Othello{
 	    checkDown(x,y);
 	}
 	if(y < 6 && board[x][y - 1] == val * -1){
-	    checkRight(x,y);
-	}
-	if(y > 1 && board[x][y + 1] == val * -11){
 	    checkLeft(x,y);
+	}
+	if(y > 1 && board[x][y + 1] == val * -1){
+	    checkRight(x,y);
 	}
 	// diagonals
 	if(x > 1 && y > 1 && board[x - 1][y - 1] == val * -1){
@@ -116,6 +120,7 @@ public class Othello{
 	    checkDownAndRight(x,y);
 	}
     }
+    
     public void checkDown(int x, int y){
 	int val = board[x][y];
 	int a;
@@ -124,7 +129,10 @@ public class Othello{
 		break;
 	    } 
 	}
-	highlighter[a][y] = true;
+	if(board[a][y] == 0){
+	    highlighter[a][y] = true;
+      System.out.println('1');
+	}
     }
     public void checkUp(int x, int y){
 	int val = board[x][y];
@@ -135,7 +143,9 @@ public class Othello{
 	    }
         
 	}
-	highlighter[a][y] = true;
+	if(board[a][y] == 0){
+	    highlighter[a][y] = true;
+	}
     }
     public void checkRight(int x, int y){
 	int val = board[x][y];
@@ -145,7 +155,9 @@ public class Othello{
 		break;
 	    }
 	}
-	highlighter[x][a] = true;
+	if(board[x][a] == 0){
+	    highlighter[x][a] = true;
+	}
     }
     public void checkLeft(int x, int y){
 	int val = board[x][y];
@@ -155,7 +167,9 @@ public class Othello{
 		break;
 	    }
 	}
-	highlighter[x][a] = true;
+	if(board[x][a] == 0){
+	    highlighter[x][a] = true;
+	}
     }
     public void checkDownAndRight(int x, int y){
 	int val = board[x][y];
@@ -165,7 +179,9 @@ public class Othello{
 		break;
 	    } 
 	}
-	highlighter[x + a][y + a] = true;
+	if(board[x + a][y +a] == 0){
+	    highlighter[x + a][y + a] = true;
+	}
     }
     public void checkDownAndLeft(int x, int y){
 	int val = board[x][y];
@@ -175,7 +191,9 @@ public class Othello{
 		break;
 	    } 
 	}
-	highlighter[x + a][y - a] = true;
+	if(board[x + a][y +a] == 0){
+	    highlighter[x + a][y - a] = true;
+	}
     }
     public void checkUpAndLeft(int x, int y){
 	int val = board[x][y];
@@ -185,7 +203,9 @@ public class Othello{
 		break;
 	    } 
 	}
-        highlighter[x - a][y - a] = true;
+	if(board[x + a][y + a] == 0){
+	    highlighter[x - a][y - a] = true;
+	}
     }
     public void checkUpAndRight(int x, int y){
 	int val = board[x][y];
@@ -195,9 +215,12 @@ public class Othello{
 		break;
 	    } 
 	}
-	highlighter[x - a][y + a] = true;
+	if(board[x + a][y +a] == 0){
+	    highlighter[x - a][y + a] = true;
+	}
     }
-    private void restartBoard(){
+    private void restartBoard(String a){
+	first = a;
 	turn = 1;
 	white = 2;
 	black = 2;
@@ -214,6 +237,7 @@ public class Othello{
 	board[4][4] = -1;
 	highlight();
     }
+    
     private void blackMoves(int x,int y){
 	board[x][y] = -1;
 	if(x > 1 && board[x - 1][y] == 1){
@@ -251,7 +275,7 @@ public class Othello{
 	    captureUp(x,y);
 	}
 	if(x < 6 && board[x + 1][y] == -1){
-	    captureDown(x,y);
+ 	    captureDown(x,y);
 	}
 	if(y < 6 && board[x][y + 1] == -1){
 	    captureRight(x,y);
@@ -275,6 +299,21 @@ public class Othello{
 	turn++;
 	endgame();
 	highlight();
+    }
+    
+    private void capture(int x, int y){
+	if(first == "blacks"){
+	    if (turn % 2 == 0){
+		whiteMoves(x,y);
+	    }
+	    else blackMoves(x,y);
+	}
+	else{
+	    if(turn % 2 == 0){
+		blackMoves(x,y);
+	    }
+	    else whiteMoves(x,y);
+	}
     }
     public void captureDown(int x, int y){
 	int val = board[x][y];
@@ -458,17 +497,18 @@ public class Othello{
 	String s = "";
 	for(int x = 0;x < board.length; x ++){
 	    for (int y = 0; y < board[x].length; y ++){
-		s += board[x][y];
+		s += highlighter[x][y];
 		s +=" ";
 	    }
 	    s += "\n";
 	}
 	return s;
     }
-    public static void main(String[] args){
-	Othello a = new Othello();
-	a.whiteMoves(4,5);
-	a.blackMoves(5,5);
-	System.out.println(a);
+    public static void main(String[] args) {
+      Othello a = new Othello();
+      System.out.println(a);
     }
 }
+
+
+
