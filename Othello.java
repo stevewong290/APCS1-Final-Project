@@ -499,7 +499,7 @@ public class Othello{
 	String s = "";
 	for(int x = 0;x < board.length; x ++){
 	    for (int y = 0; y < board[x].length; y ++){
-		s += highlighter[x][y];
+		s += board[x][y];
 		s +=" ";
 	    }
 	    s += "\n";

@@ -64,15 +64,15 @@ public class Puzzle extends JFrame implements ActionListener{
 	    //  whitecircles.setPreferredSize(50,50);
 	    // arrayBtn[i].setIcon(whitecircles);
 	    if(a.board[x][y] == 1){
-		ImageIcon whitecircles = new ImageIcon("./whitecircle.jpg");
-		arrayBtn[i].setIcon(whitecircles);
+			ImageIcon whitecircles = new ImageIcon("./whitecircle.jpg");
+			arrayBtn[i].setIcon(whitecircles);
 	    }
 	    else if(a.board[x][y] == -1){
-		ImageIcon blackcircles = new ImageIcon("./blackcircle.png");
+			ImageIcon blackcircles = new ImageIcon("./blackcircle.png");
 		arrayBtn[i].setIcon(blackcircles);
 	    }
 	    else if(a.highlighter[x][y] == true){
-		arrayBtn[i].setBackground(Color.YELLOW);
+		//	arrayBtn[i].setBackground(Color.YELLOW);
 		//  capture(x,y);
 		arrayBtn[i].addActionListener(this);
 		arrayBtn[i].setActionCommand("capturing" + x + y);
@@ -144,9 +144,14 @@ public class Puzzle extends JFrame implements ActionListener{
 	    a.restartBoard("black");
 	}
 	if(event.substring(0,9).equals("capturing")){
+	    //print x and y
 	    a.capture(Character.getNumericValue(event.charAt(9)), Character.getNumericValue(event.charAt(10)));
 	    //should we refresh hear? Do we just recall the constructor or whjbo at???
-	    Puzzle p = new Puzzle();
+	    //   Puzzle p = new Puzzle();
+	    for(int x = 0; x < arrayBtn.length;x++){
+		arrayBtn[x].setBackground(Color.BLACK);
+	    }
+	    System.out.println(a);
 	}
     }
     public static void main(String[] args) {
