@@ -508,6 +508,7 @@ public class Othello{
     }
     public static void main(String[] args) {
       Othello a = new Othello();
+      a.whiteMoves(4,5);
       System.out.println(a);
     }
 }
