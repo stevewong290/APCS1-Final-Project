@@ -1,9 +1,9 @@
 public class Othello{
-    private int[][] board = new int[8][8];
-    private boolean[][] highlighter = new boolean[8][8];
-    private int turn, white, black, counter, empty;
-    private String first;
-    private void endgame(){
+    public int[][] board = new int[8][8];
+    public boolean[][] highlighter = new boolean[8][8];
+    public int turn, white, black, counter, empty;
+    public String first;
+    public void endgame(){
 	if(white == 0 || black == 0|| counter == 2 || empty == 0){
 	    if (black > white){
 		System.out.println("black Wins");
@@ -29,7 +29,7 @@ public class Othello{
        else{
        }}
        }*/
-    private void highlight(){
+    public void highlight(){
       	for(int a = 0; a <board.length;a++){
 	    for(int b = 0; b < board[a].length;b++){
 		highlighter[a][b] = false;
@@ -82,7 +82,7 @@ public class Othello{
 	    highlight();
 	}
     }
-    private boolean count(){
+    public boolean count(){
 	for(int x = 0; x < 8;x++){
 	    for(int y = 0; y < 8;y++){
 		if(highlighter[x][y] == true){
@@ -92,7 +92,7 @@ public class Othello{
 	}
 	return false;
     }
-    private void check(int x, int y){
+    public void check(int x, int y){
 	int val = board[x][y];
 	if(x > 1 && board[x - 1][y] == val * -1){
 	    checkUp(x,y);
@@ -219,7 +219,7 @@ public class Othello{
 	    highlighter[x - a][y + a] = true;
 	}
     }
-    private void restartBoard(String a){
+    public void restartBoard(String a){
 	first = a;
 	turn = 1;
 	white = 2;
@@ -238,7 +238,7 @@ public class Othello{
 	highlight();
     }
     
-    private void blackMoves(int x,int y){
+    public void blackMoves(int x,int y){
 	board[x][y] = -1;
 	if(x > 1 && board[x - 1][y] == 1){
 	    captureUp(x,y);
@@ -269,7 +269,7 @@ public class Othello{
 	endgame();
 	highlight();
     }
-    private void whiteMoves(int x,int y){
+    public void whiteMoves(int x,int y){
 	board[x][y] = 1;
 	if(x > 1 && board[x - 1][y] == -1){
 	    captureUp(x,y);
@@ -301,7 +301,7 @@ public class Othello{
 	highlight();
     }
     
-    private void capture(int x, int y){
+    public void capture(int x, int y){
 	if(first == "blacks"){
 	    if (turn % 2 == 0){
 		whiteMoves(x,y);
