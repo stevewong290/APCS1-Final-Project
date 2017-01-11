@@ -76,7 +76,7 @@ public class Othello{
 	    }
 	}
 	if(count() == false){
-	    turn ++;
+	    turn++;
 	    counter++;
 	    endgame();
 	    highlight();
@@ -247,10 +247,10 @@ public class Othello{
 	if(x < 6 && board[x + 1][y] == 1){
 	    captureDown(x,y);
 	}
-	if(y < 6 && board[x][y - 1] == 1){
+	if(y < 6 && board[x][y + 1] == 1){
 	    captureRight(x,y);
 	}
-	if(y > 1 && board[x][y + 1] == 1){
+	if(y > 1 && board[x][y - 1] == 1){
 	    captureLeft(x,y);
 	}
 	// diagonals
@@ -304,6 +304,7 @@ public class Othello{
     }
     
     public void capture(int x, int y){
+	System.out.println(turn);
 	if(first == "blacks"){
 	    if (turn % 2 == 0){
 		whiteMoves(x,y);
@@ -316,6 +317,8 @@ public class Othello{
 	    }
 	    else whiteMoves(x,y);
 	}
+	System.out.println(turn);
+	
     }
     public void captureDown(int x, int y){
 	int val = board[x][y];
@@ -327,7 +330,7 @@ public class Othello{
         
 	}
 	if(board[a][y] == val){
-	    for(int i = a - 1; i > x && board[i][y] == val * -1; i--){
+	    for(int i = a - 1; i < x && board[i][y] == val * -1; i--){
 		board[i][y] = val;
 		if(val == 1){
 		    white++;
@@ -370,9 +373,9 @@ public class Othello{
 	    if(board[x][a] == 0){
 		break;
 	    }
-	}
+	}	
 	if(board[x][a] == val){
-	    for(int i = a - 1; i > x && board[x][i] == val * -1; i--){
+	    for(int i = a - 1; i > y && board[x][i] == val * -1; i--){
 		board[x][i] = val;
 		if(val == 1){
 		    white++;
@@ -508,7 +511,6 @@ public class Othello{
     }
     public static void main(String[] args) {
       Othello a = new Othello();
-      a.whiteMoves(4,5);
       System.out.println(a);
     }
 }

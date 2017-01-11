@@ -143,14 +143,34 @@ public class Puzzle extends JFrame implements ActionListener{
 	if(event.equals("restartboard2")){
 	    a.restartBoard("black");
 	}
+	if(event.equals("donothing")){
+	}
 	if(event.substring(0,9).equals("capturing")){
 	    //print x and y
 	    a.capture(Character.getNumericValue(event.charAt(9)), Character.getNumericValue(event.charAt(10)));
-	    //should we refresh hear? Do we just recall the constructor or whjbo at???
+	    //should we refresh hear? Do we just recall the constructor or whjbo at???fafdsafdsa
 	    //   Puzzle p = new Puzzle();
 	    for(int x = 0; x < arrayBtn.length;x++){
-		arrayBtn[x].setBackground(Color.BLACK);
+		int b = x / 8;
+		int c = x % 8;
+		arrayBtn[x].addActionListener(this);
+		arrayBtn[x].setActionCommand("donothing");
+		arrayBtn[x].setBackground(Color.GREEN);
+		if(a.board[b][c] == 1){
+		    ImageIcon whitecircles = new ImageIcon("./whitecircle.jpg");
+		    arrayBtn[x].setIcon(whitecircles);
+		}
+		else if(a.board[b][c] == -1){
+		    ImageIcon blackcircles = new ImageIcon("./blackcircle.png");
+		    arrayBtn[x].setIcon(blackcircles);
+		}
+		else if(a.highlighter[b][c] == true){
+		    arrayBtn[x].setBackground(Color.YELLOW);
+		    arrayBtn[x].addActionListener(this);
+		    arrayBtn[x].setActionCommand("capturing" + b + c);
+		}
 	    }
+	    repaint();
 	    System.out.println(a);
 	}
     }
