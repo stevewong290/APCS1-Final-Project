@@ -223,6 +223,7 @@ public class Othello{
 	turn = 1;
 	white = 2;
 	black = 2;
+	empty = 60;
 	counter = 0;
 	for(int x = 0; x <board.length;x++){
 	    for(int y = 0; y < board[x].length;y++){
@@ -239,6 +240,7 @@ public class Othello{
     
     public void blackMoves(int x,int y){
 	board[x][y] = -1;
+	empty--;
 	if(x > 1 && board[x - 1][y] == 1){
 	    captureUp(x,y);
 	}
@@ -269,6 +271,7 @@ public class Othello{
 	highlight();
     }
     public void whiteMoves(int x,int y){
+	empty--;
 	board[x][y] = 1;
 	if(x > 1 && board[x - 1][y] == -1){
 	    captureUp(x,y);
