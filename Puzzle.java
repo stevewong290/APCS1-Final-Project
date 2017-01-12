@@ -166,7 +166,6 @@ public class Puzzle extends JFrame implements ActionListener{
 		}
 		else if(a.highlighter[b][c] == true){
 		    arrayBtn[x].setBackground(Color.YELLOW);
-		    arrayBtn[x].addActionListener(this);
 		    arrayBtn[x].setActionCommand("capturing" + b + c);
 		}
 	    }
