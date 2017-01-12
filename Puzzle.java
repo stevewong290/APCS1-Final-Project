@@ -79,6 +79,8 @@ public class Puzzle extends JFrame implements ActionListener{
 	    }
 	    else{
 		arrayBtn[i].setBackground(Color.GREEN);
+			arrayBtn[i].addActionListener(this);
+			arrayBtn[i].setActionCommand("donothing");
 	    }
 	    arrayBtn[i].setOpaque(true);
 	    panel1.add(arrayBtn[i]);
@@ -119,7 +121,7 @@ public class Puzzle extends JFrame implements ActionListener{
 
 	panel3.setLayout(new BorderLayout());
 	JLabel textarea1 = new JLabel("Black Pieces: " +  a.black);
-	textarea1.addActionCommand("add");
+	//	textarea1.addActionCommand("add");
 	JLabel textarea2 = new JLabel("White Pieces: " + a.white);
   
 	JLabel textarea3 = new JLabel("Turns: " + a.turn);
@@ -158,13 +160,12 @@ public class Puzzle extends JFrame implements ActionListener{
 	if(event.substring(0,9).equals("capturing")){
 	    //print x and y
 	    a.capture(Character.getNumericValue(event.charAt(9)), Character.getNumericValue(event.charAt(10)));
-	    //should we refresh hear? Do we just recall the constructor or whjbo at???fafdsafdsa
 	    //   Puzzle p = new Puzzle();
 	    for(int x = 0; x < arrayBtn.length;x++){
 		int b = x / 8;
 		int c = x % 8;
 		arrayBtn[x].addActionListener(this);
-		arrayBtn[x].setActionCommand("donothing");
+			arrayBtn[x].setActionCommand("donothing");
 		arrayBtn[x].setBackground(Color.GREEN);
 		if(a.board[b][c] == 1){
 		    ImageIcon whitecircles = new ImageIcon("./whitecircle.jpg");
@@ -177,6 +178,7 @@ public class Puzzle extends JFrame implements ActionListener{
 		}
 		else if(a.highlighter[b][c] == true){
 		    arrayBtn[x].setBackground(Color.YELLOW);
+		    // arrayBtn[x].addActionListener(this);
 		    arrayBtn[x].setActionCommand("capturing" + b + c);
 		}
 		 arrayBtn[x].repaint();
@@ -184,10 +186,10 @@ public class Puzzle extends JFrame implements ActionListener{
 	    //  repaint();
 	    System.out.println(a);
 	}
-	if(event.equals("add")){
-	    black++;
-	    textarea1.repaint();
-	}
+	//	if(event.equals("add")){
+	//  black++;
+	//  textarea1.repaint();
+	//	}
     }
     public static void main(String[] args) {
 	Puzzle p = new Puzzle();
