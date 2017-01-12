@@ -124,7 +124,7 @@ public class Othello{
     public void checkDown(int x, int y){
 	int val = board[x][y];
 	int a;
-	for(a = x + 1; a <= 7 && board[a][y] == val * -1; a++){
+	for(a = x + 1; a < 7 && board[a][y] == val * -1; a++){
 	    if(board[a][y] == 0){
 		break;
 	    } 
@@ -136,7 +136,7 @@ public class Othello{
     public void checkUp(int x, int y){
 	int val = board[x][y];
 	int a;
-	for(a = x - 1; a >= 0 && board[a][y] == val * -1; a--){
+	for(a = x - 1; a > 0 && board[a][y] == val * -1; a--){
 	    if(board[a][y] == 0){
 		break;
 	    }
@@ -149,7 +149,7 @@ public class Othello{
     public void checkRight(int x, int y){
 	int val = board[x][y];
 	int a;
-	for(a = y + 1; a <= 7 && board[x][a] == val * -1; a++){
+	for(a = y + 1; a < 7 && board[x][a] == val * -1; a++){
 	    if(board[x][a] == 0){
 		break;
 	    }
@@ -161,7 +161,7 @@ public class Othello{
     public void checkLeft(int x, int y){
 	int val = board[x][y];
 	int a;
-	for(a = y - 1; a >= 0 && board[x][a] == val * -1; a--){
+	for(a = y - 1; a > 0 && board[x][a] == val * -1; a--){
 	    if(board[x][a] == 0){
 		break;
 	    }
@@ -173,7 +173,7 @@ public class Othello{
     public void checkDownAndRight(int x, int y){
 	int val = board[x][y];
 	int a;
-	for(a = 1;a + y <= 7 && a + x <= 7 && board[x + a][y + a] == val * -1; a++){
+	for(a = 1;a + y < 7 && a + x < 7 && board[x + a][y + a] == val * -1; a++){
 	    if(board[x + a][y + a] == 0){
 		break;
 	    } 
@@ -185,19 +185,19 @@ public class Othello{
     public void checkDownAndLeft(int x, int y){
 	int val = board[x][y];
 	int a;
-	for(a = 1;y - a >= 0 && a + x <= 7 && board[x + a][y - a] == val * -1; a++){
+	for(a = 1;y - a > 0 && a + x < 7 && board[x + a][y - a] == val * -1; a++){
 	    if(board[x + a][y - a] == 0){
 		break;
 	    } 
 	}
-	if(board[x + a][y +a] == 0){
+	if(board[x + a][y -a] == 0){
 	    highlighter[x + a][y - a] = true;
 	}
     }
     public void checkUpAndLeft(int x, int y){
 	int val = board[x][y];
 	int a;
-	for(a = 1;y - a >= 0 && x - a >= 0 && board[x - a][y - a] == val * -1; a++){
+	for(a = 1;y - a > 0 && x - a > 0 && board[x - a][y - a] == val * -1; a++){
 	    if(board[x - a][y - a] == 0){
 		break;
 	    } 
@@ -209,7 +209,7 @@ public class Othello{
     public void checkUpAndRight(int x, int y){
 	int val = board[x][y];
 	int a;
-	for(a = 1;y + a <= 7 && x - a >= 0 && board[x - a][y + a] == val * -1; a++){
+	for(a = 1;y + a < 7 && x - a > 0 && board[x - a][y + a] == val * -1; a++){
 	    if(board[x - a][y + a] == 0){
 		break;
 	    } 
@@ -330,7 +330,7 @@ public class Othello{
         
 	}
 	if(board[a][y] == val){
-	    for(int i = a - 1; i < x && board[i][y] == val * -1; i--){
+	    for(int i = a - 1; i > x && board[i][y] == val * -1; i--){
 		board[i][y] = val;
 		if(val == 1){
 		    white++;

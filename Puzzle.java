@@ -119,7 +119,7 @@ public class Puzzle extends JFrame implements ActionListener{
 
 	panel3.setLayout(new BorderLayout());
 	JLabel textarea1 = new JLabel("Black Pieces: " +  a.black);
- 
+	textarea1.addActionCommand("add");
 	JLabel textarea2 = new JLabel("White Pieces: " + a.white);
   
 	JLabel textarea3 = new JLabel("Turns: " + a.turn);
@@ -183,6 +183,10 @@ public class Puzzle extends JFrame implements ActionListener{
 	    }
 	    //  repaint();
 	    System.out.println(a);
+	}
+	if(event.equals("add")){
+	    black++;
+	    textarea1.repaint();
 	}
     }
     public static void main(String[] args) {
