@@ -35,7 +35,7 @@ public class Puzzle extends JFrame implements ActionListener{
 
         JPanel panel2 = new JPanel();
     
-        //  but2.addActionLister(this);
+        //but2.addActionLister(this);
         //  but2.setActionCommand("yellow");
         JPanel panel3  = new JPanel();
     
@@ -72,7 +72,7 @@ public class Puzzle extends JFrame implements ActionListener{
 		arrayBtn[i].setIcon(blackcircles);
 	    }
 	    else if(a.highlighter[x][y] == true){
-		//	arrayBtn[i].setBackground(Color.YELLOW);
+		arrayBtn[i].setBackground(Color.YELLOW);
 		//  capture(x,y);
 		arrayBtn[i].addActionListener(this);
 		arrayBtn[i].setActionCommand("capturing" + x + y);
@@ -90,14 +90,23 @@ public class Puzzle extends JFrame implements ActionListener{
 	panel2.setPreferredSize(new Dimension(500, 30));
 
 	JButton button1 = new JButton("White Goes First");
-	button1.addActionListener(this);
+		button1.addActionListener(this);
+	/*	button1.setActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e){
+		    a.restartBoard("white");
+		    for(int x = 0; x < arrayBtn.length;x++){
+			arrayBtn[x].repaint();
+		    }
+		System.out.println(a);
+		}
+		});*/
 	button1.setActionCommand("restartboard");
 	JButton button2 = new JButton("Random");
-	button2.addActionListener(this);
-	button2.setActionCommand("restartboard1");
+	//	button2.addActionListener(this);
+	//	button2.setActionCommand("restartboard1");
 	JButton button3 = new JButton("Black Goes First");
-	button3.addActionListener(this);
-	button3.setActionCommand("restartboard2");
+	//	button3.addActionListener(this);
+	//	button3.setActionCommand("restartboard2");
 
     
 	button1.setPreferredSize(new Dimension(300,20));
@@ -134,12 +143,13 @@ public class Puzzle extends JFrame implements ActionListener{
 	    if(event.equals("Green")){
 	    arrayBtn[i].setBackground(Color.GREEN);
 	    } */
-        if(event.equals("restartboard")){
-	    a.restartBoard("whites");
+	/*   if(event.equals("restartboard")){
+	    a.restartBoard("white");
 	    for(int x = 0; x < arrayBtn.length;x++){
 		arrayBtn[x].repaint();
 	    }
-	}
+	    System.out.println(a);
+	    }*/
 	if(event.equals("restartboard2")){
 	    a.restartBoard("black");
 	}
@@ -163,13 +173,15 @@ public class Puzzle extends JFrame implements ActionListener{
 		else if(a.board[b][c] == -1){
 		    ImageIcon blackcircles = new ImageIcon("./blackcircle.png");
 		    arrayBtn[x].setIcon(blackcircles);
+		    // arrayBtn[x].repaint();
 		}
 		else if(a.highlighter[b][c] == true){
 		    arrayBtn[x].setBackground(Color.YELLOW);
 		    arrayBtn[x].setActionCommand("capturing" + b + c);
 		}
+		 arrayBtn[x].repaint();
 	    }
-	    repaint();
+	    //  repaint();
 	    System.out.println(a);
 	}
     }

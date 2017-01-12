@@ -517,3 +517,9 @@ public class Othello{
 
 
 
+/*
+  List of shit that does not work:
+  capture down
+  capture upright
+  
+ */
