@@ -79,9 +79,11 @@ public class Othello{
 	    turn++;
 	    counter++;
 	    endgame();
-	    highlight();
+	    if(!(counter == 2)){
+		highlight();
+	    }
 	}
-	//else counter = 0;
+	else counter = 0;
     }
     public boolean count(){
 	for(int x = 0; x < 8;x++){
@@ -324,7 +326,7 @@ public class Othello{
     public void captureDown(int x, int y){
 	int val = board[x][y];
 	int a;
-	for(a = x + 1; a <= 7 && board[a][y] == val * -1; a++){
+	for(a = x + 1; a < 7 && board[a][y] == val * -1; a++){
 	    if(board[a][y] == 0){
 		break;
 	    }

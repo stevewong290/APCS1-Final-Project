@@ -64,11 +64,12 @@ public class Puzzle extends JFrame implements ActionListener{
 	    //  whitecircles.setPreferredSize(50,50);
 	    // arrayBtn[i].setIcon(whitecircles);
 	    if(a.board[x][y] == 1){
-			ImageIcon whitecircles = new ImageIcon("./whitecircle.jpg");
-			arrayBtn[i].setIcon(whitecircles);
+		ImageIcon whitecircles = new ImageIcon("./whitecircle.jpg");
+		//	whitecircles.setPreferredSize(50, 50);
+		arrayBtn[i].setIcon(whitecircles);
 	    }
 	    else if(a.board[x][y] == -1){
-			ImageIcon blackcircles = new ImageIcon("./blackcircle.png");
+		ImageIcon blackcircles = new ImageIcon("./blackcircle.png");
 		arrayBtn[i].setIcon(blackcircles);
 	    }
 	    else if(a.highlighter[x][y] == true){
