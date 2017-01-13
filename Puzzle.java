@@ -164,7 +164,6 @@ public class Puzzle extends JFrame implements ActionListener{
 	    for(int x = 0; x < arrayBtn.length;x++){
 		int b = x / 8;
 		int c = x % 8;
-		arrayBtn[x].addActionListener(this);
 			arrayBtn[x].setActionCommand("donothing");
 		arrayBtn[x].setBackground(Color.GREEN);
 		if(a.board[b][c] == 1){
