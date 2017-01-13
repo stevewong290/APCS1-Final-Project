@@ -104,7 +104,7 @@ public class Puzzle extends JFrame implements ActionListener{
 		}
 		});*/
 	button1.setActionCommand("restartboard");
-	JButton button2 = new JButton("Random");
+	//	JButton button2 = new JButton("Random");
 	//	button2.addActionListener(this);
 	//	button2.setActionCommand("restartboard1");
 	JButton button3 = new JButton("Black Goes First");
@@ -146,13 +146,14 @@ public class Puzzle extends JFrame implements ActionListener{
 	    if(event.equals("Green")){
 	    arrayBtn[i].setBackground(Color.GREEN);
 	    } */
-	/*   if(event.equals("restartboard")){
+	  if(event.equals("restartboard")){
 	    a.restartBoard("white");
-	    for(int x = 0; x < arrayBtn.length;x++){
+	    /*   for(int x = 0; x < arrayBtn.length;x++){
 		arrayBtn[x].repaint();
 	    }
 	    System.out.println(a);
 	    }*/
+	  }
 	if(event.equals("restartboard2")){
 	    a.restartBoard("black");
 	}
