@@ -243,6 +243,7 @@ public class Othello{
     
     public void blackMoves(int x,int y){
 	board[x][y] = -1;
+	black++;
 	empty--;
 	if(x > 1 && board[x - 1][y] == 1){
 	    captureUp(x,y);
@@ -275,6 +276,7 @@ public class Othello{
     }
     public void whiteMoves(int x,int y){
 	empty--;
+	white++;
 	board[x][y] = 1;
 	if(x > 1 && board[x - 1][y] == -1){
 	    captureUp(x,y);
@@ -321,7 +323,9 @@ public class Othello{
 	    else whiteMoves(x,y);
 	}
 	System.out.println(turn);
-	
+	System.out.println("blacks" + black);
+	System.out.println("whites" + white);
+	System.out.println(counter + counter);
     }
     public void captureDown(int x, int y){
 	int val = board[x][y];

@@ -113,10 +113,8 @@ public class Puzzle extends JFrame implements ActionListener{
 
     
 	button1.setPreferredSize(new Dimension(300,20));
-	button2.setPreferredSize(new Dimension(300,20));
 	button3.setPreferredSize(new Dimension(300,20));
 	panel2.add(button1);
-	panel2.add(button2);
 	panel2.add(button3);
     
 
@@ -147,7 +145,7 @@ public class Puzzle extends JFrame implements ActionListener{
 	    arrayBtn[i].setBackground(Color.GREEN);
 	    } */
 	  if(event.equals("restartboard")){
-	    a.restartBoard("white");
+	    a.restartBoard("whites");
 	    /*   for(int x = 0; x < arrayBtn.length;x++){
 		arrayBtn[x].repaint();
 	    }
@@ -155,7 +153,7 @@ public class Puzzle extends JFrame implements ActionListener{
 	    }*/
 	  }
 	if(event.equals("restartboard2")){
-	    a.restartBoard("black");
+	    a.restartBoard("blacks");
 	}
 	if(event.equals("donothing")){
 	}
