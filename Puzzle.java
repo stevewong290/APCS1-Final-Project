@@ -80,8 +80,8 @@ public class Puzzle extends JFrame implements ActionListener{
 	    }
 	    else{
 		arrayBtn[i].setBackground(Color.GREEN);
-			arrayBtn[i].addActionListener(this);
-			arrayBtn[i].setActionCommand("donothing");
+		arrayBtn[i].addActionListener(this);
+		arrayBtn[i].setActionCommand("donothing");
 	    }
 	    arrayBtn[i].setOpaque(true);
 	    panel1.add(arrayBtn[i]);
@@ -93,13 +93,13 @@ public class Puzzle extends JFrame implements ActionListener{
 	panel2.setPreferredSize(new Dimension(500, 30));
 
 	JButton button1 = new JButton("White Goes First");
-		button1.addActionListener(this);
+	button1.addActionListener(this);
 	/*	button1.setActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e){
-		    a.restartBoard("white");
-		    for(int x = 0; x < arrayBtn.length;x++){
-			arrayBtn[x].repaint();
-		    }
+		a.restartBoard("white");
+		for(int x = 0; x < arrayBtn.length;x++){
+		arrayBtn[x].repaint();
+		}
 		System.out.println(a);
 		}
 		});*/
@@ -108,8 +108,8 @@ public class Puzzle extends JFrame implements ActionListener{
 	//	button2.addActionListener(this);
 	//	button2.setActionCommand("restartboard1");
 	JButton button3 = new JButton("Black Goes First");
-	//	button3.addActionListener(this);
-	//	button3.setActionCommand("restartboard2");
+	button3.addActionListener(this);
+	button3.setActionCommand("restartboard2");
 
     
 	button1.setPreferredSize(new Dimension(300,20));
@@ -144,27 +144,13 @@ public class Puzzle extends JFrame implements ActionListener{
 	    if(event.equals("Green")){
 	    arrayBtn[i].setBackground(Color.GREEN);
 	    } */
-	  if(event.equals("restartboard")){
+	if(event.equals("restartboard")){
 	    a.restartBoard("whites");
-	    /*   for(int x = 0; x < arrayBtn.length;x++){
-		arrayBtn[x].repaint();
-	    }
-	    System.out.println(a);
-	    }*/
-	  }
-	if(event.equals("restartboard2")){
-	    a.restartBoard("blacks");
-	}
-	if(event.equals("donothing")){
-	}
-	if(event.substring(0,9).equals("capturing")){
-	    //print x and y
-	    a.capture(Character.getNumericValue(event.charAt(9)), Character.getNumericValue(event.charAt(10)));
-	    //   Puzzle p = new Puzzle();
 	    for(int x = 0; x < arrayBtn.length;x++){
 		int b = x / 8;
 		int c = x % 8;
-			arrayBtn[x].setActionCommand("donothing");
+		arrayBtn[x].setActionCommand("donothing");
+		arrayBtn[x].setIcon(null);
 		arrayBtn[x].setBackground(Color.GREEN);
 		if(a.board[b][c] == 1){
 		    ImageIcon whitecircles = new ImageIcon("./whitecircle.jpg");
@@ -180,7 +166,67 @@ public class Puzzle extends JFrame implements ActionListener{
 		    // arrayBtn[x].addActionListener(this);
 		    arrayBtn[x].setActionCommand("capturing" + b + c);
 		}
+		arrayBtn[x].repaint();
+	    }
+	    System.out.println(a);
+	    /*   for(int x = 0; x < arrayBtn.length;x++){
 		 arrayBtn[x].repaint();
+		 }
+		 System.out.println(a);
+		 }*/
+	}
+	if(event.equals("restartboard2")){
+	    a.restartBoard("blacks");
+	    for(int x = 0; x < arrayBtn.length;x++){
+		int b = x / 8;
+		int c = x % 8;
+		arrayBtn[x].setActionCommand("donothing");
+		arrayBtn[x].setBackground(Color.GREEN);
+		arrayBtn[x].setIcon(null);
+		if(a.board[b][c] == 1){
+		    ImageIcon whitecircles = new ImageIcon("./whitecircle.jpg");
+		    arrayBtn[x].setIcon(whitecircles);
+		}
+		else if(a.board[b][c] == -1){
+		    ImageIcon blackcircles = new ImageIcon("./blackcircle.png");
+		    arrayBtn[x].setIcon(blackcircles);
+		    // arrayBtn[x].repaint();
+		}
+		else if(a.highlighter[b][c] == true){
+		    arrayBtn[x].setBackground(Color.YELLOW);
+		    // arrayBtn[x].addActionListener(this);
+		    arrayBtn[x].setActionCommand("capturing" + b + c);
+		}
+		arrayBtn[x].repaint();
+	    }
+	    System.out.println(a);
+	}
+	if(event.equals("donothing")){
+	}
+	if(event.substring(0,9).equals("capturing")){
+	    //print x and y
+	    a.capture(Character.getNumericValue(event.charAt(9)), Character.getNumericValue(event.charAt(10)));
+	    //   Puzzle p = new Puzzle();
+	    for(int x = 0; x < arrayBtn.length;x++){
+		int b = x / 8;
+		int c = x % 8;
+		arrayBtn[x].setActionCommand("donothing");
+		arrayBtn[x].setBackground(Color.GREEN);
+		if(a.board[b][c] == 1){
+		    ImageIcon whitecircles = new ImageIcon("./whitecircle.jpg");
+		    arrayBtn[x].setIcon(whitecircles);
+		}
+		else if(a.board[b][c] == -1){
+		    ImageIcon blackcircles = new ImageIcon("./blackcircle.png");
+		    arrayBtn[x].setIcon(blackcircles);
+		    // arrayBtn[x].repaint();
+		}
+		else if(a.highlighter[b][c] == true){
+		    arrayBtn[x].setBackground(Color.YELLOW);
+		    // arrayBtn[x].addActionListener(this);
+		    arrayBtn[x].setActionCommand("capturing" + b + c);
+		}
+		arrayBtn[x].repaint();
 	    }
 	    //  repaint();
 	    System.out.println(a);
