@@ -12,6 +12,7 @@ public class Puzzle extends JFrame implements ActionListener{
     */
 
     private static JButton[] arrayBtn;
+    private static JButton[] arrayBtn2;
     Othello a = new Othello();
     public Puzzle(){
       
@@ -49,7 +50,7 @@ public class Puzzle extends JFrame implements ActionListener{
         // set layout of panel1
 
         panel1.setLayout(new GridLayout(8, 8, 0, 0));
-          
+	panel1.setSize(1200, 1170);
         
 	// add buttons to the frame
         
@@ -98,8 +99,10 @@ public class Puzzle extends JFrame implements ActionListener{
 	panel2.setLayout(new FlowLayout());
 	panel2.setPreferredSize(new Dimension(500, 30));
 
-	JButton button1 = new JButton("White Goes First");
-	button1.addActionListener(this);
+	arrayBtn2 = new JButton[2];
+	
+	arrayBtn2[0]  = new JButton("White Goes First");
+	arrayBtn2[0].addActionListener(this);
 	/*	button1.setActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e){
 		a.restartBoard("white");
@@ -109,19 +112,19 @@ public class Puzzle extends JFrame implements ActionListener{
 		System.out.println(a);
 		}
 		});*/
-	button1.setActionCommand("restartboard");
+	arrayBtn2[0].setActionCommand("restartboard");
 	//	JButton button2 = new JButton("Random");
 	//	button2.addActionListener(this);
 	//	button2.setActionCommand("restartboard1");
-	JButton button3 = new JButton("Black Goes First");
-	button3.addActionListener(this);
-	button3.setActionCommand("restartboard2");
+	arrayBtn2[1] = new JButton("Black Goes First");
+	arrayBtn2[1].addActionListener(this);
+	arrayBtn2[1].setActionCommand("restartboard2");
 
     
-	button1.setPreferredSize(new Dimension(300,20));
-	button3.setPreferredSize(new Dimension(300,20));
-	panel2.add(button1);
-	panel2.add(button3);
+	arrayBtn2[0].setPreferredSize(new Dimension(300,20));
+	arrayBtn2[1].setPreferredSize(new Dimension(300,20));
+	panel2.add(arrayBtn2[0]);
+	panel2.add(arrayBtn2[1]);
     
 
 	panel3.setLayout(new BorderLayout());
@@ -179,6 +182,8 @@ public class Puzzle extends JFrame implements ActionListener{
 		    arrayBtn[x].setActionCommand("capturing" + b + c);
 		}
 		arrayBtn[x].repaint();
+		arrayBtn2[0].repaint();
+		arrayBtn[1].repaint();
 	    }
 	    System.out.println(a);
 	    /*   for(int x = 0; x < arrayBtn.length;x++){
@@ -216,6 +221,8 @@ public class Puzzle extends JFrame implements ActionListener{
 		    arrayBtn[x].setActionCommand("capturing" + b + c);
 		}
 		arrayBtn[x].repaint();
+		arrayBtn2[1].repaint();
+		arrayBtn2[0].repaint();
 	    }
 	    System.out.println(a);
 	}
@@ -251,6 +258,8 @@ public class Puzzle extends JFrame implements ActionListener{
 		    arrayBtn[x].setActionCommand("capturing" + b + c);
 		}
 		arrayBtn[x].repaint();
+		arrayBtn2[0].repaint();
+		arrayBtn2[1].repaint();
 	    }
 	    //  repaint();
 	    System.out.println(a);

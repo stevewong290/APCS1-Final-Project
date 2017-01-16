@@ -20,4 +20,7 @@ Working Features:
 
 We have two restart buttons that allow you to choose which color should go first.
 We have a board that is comprised of buttons
-We have a highlight feature that tells you which moves are available for you to choose from. Pressing on a nonhighlighted square should not do anything to the board. 
+We have a highlight feature that tells you which moves are available for you to choose from. Pressing on a nonhighlighted square should not do anything to the board.
+
+Unresolved Bugs:
+When you resize your GUI, the buttons in the flowlayout do not reset themselves. 
