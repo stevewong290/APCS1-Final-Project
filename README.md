@@ -18,9 +18,14 @@ There is a tie if both players have 32 pieces on the board.
 
 Working Features:
 
-We have two restart buttons that allow you to choose which color should go first.
-We have a board that is comprised of buttons
+We have two restart buttons that allow you to choose which color should go first.(Black goes first if no button is pressed)
+A turn is skipped if there is no possible move for a player.
+The game will end if a player captures all of his opponent's pieces.
+The game will also end when there is no more possible moves
+We have a board that is comprised of buttons.
+Terminal will print out who wins when the game is over.
 We have a highlight feature that tells you which moves are available for you to choose from. Pressing on a nonhighlighted square should not do anything to the board.
 
-Unresolved Bugs:
+Unresolved Bugs/ not working features:
 When you resize your GUI, the buttons in the flowlayout do not reset themselves. 
+Turn counter, and pieces counter is not displaying.
