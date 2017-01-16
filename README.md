@@ -5,6 +5,7 @@ Othello is a board game that has been around for over a century. The object of t
 
 How To Compile and Run Code:
 First, compile Puzzle.java (javac Puzzle.java).
+
 Then, run Puzzle.java (java Puzzle).
 
 How to Use the Program:
