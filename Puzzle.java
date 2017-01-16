@@ -65,11 +65,17 @@ public class Puzzle extends JFrame implements ActionListener{
 	    // arrayBtn[i].setIcon(whitecircles);
 	    if(a.board[x][y] == 1){
 		ImageIcon whitecircles = new ImageIcon("./whitecircle.jpg");
+		Image image = whitecircles.getImage();
+		Image newimg = image.getScaledInstance(50, 50, java.awt.Image.SCALE_SMOOTH);
+		whitecircles = new ImageIcon(newimg);
 		//	whitecircles.setPreferredSize(50, 50);
 		arrayBtn[i].setIcon(whitecircles);
 	    }
 	    else if(a.board[x][y] == -1){
 		ImageIcon blackcircles = new ImageIcon("./blackcircle.png");
+		Image image = blackcircles.getImage();
+		Image newimg = image.getScaledInstance(50, 50, java.awt.Image.SCALE_SMOOTH);
+		blackcircles = new ImageIcon(newimg);
 		arrayBtn[i].setIcon(blackcircles);
 	    }
 	    else if(a.highlighter[x][y] == true){
@@ -154,10 +160,16 @@ public class Puzzle extends JFrame implements ActionListener{
 		arrayBtn[x].setBackground(Color.GREEN);
 		if(a.board[b][c] == 1){
 		    ImageIcon whitecircles = new ImageIcon("./whitecircle.jpg");
+		    Image image = whitecircles.getImage();
+		    Image newimg = image.getScaledInstance(50, 50, java.awt.Image.SCALE_SMOOTH);
+		    whitecircles = new ImageIcon(newimg);
 		    arrayBtn[x].setIcon(whitecircles);
 		}
 		else if(a.board[b][c] == -1){
 		    ImageIcon blackcircles = new ImageIcon("./blackcircle.png");
+		    Image image = blackcircles.getImage();
+		    Image newimg = image.getScaledInstance(50, 50, java.awt.Image.SCALE_SMOOTH);
+		    blackcircles = new ImageIcon(newimg);
 		    arrayBtn[x].setIcon(blackcircles);
 		    // arrayBtn[x].repaint();
 		}
@@ -185,10 +197,16 @@ public class Puzzle extends JFrame implements ActionListener{
 		arrayBtn[x].setIcon(null);
 		if(a.board[b][c] == 1){
 		    ImageIcon whitecircles = new ImageIcon("./whitecircle.jpg");
+		    Image image = whitecircles.getImage();
+		    Image newimg = image.getScaledInstance(50, 50, java.awt.Image.SCALE_SMOOTH);
+		    whitecircles = new ImageIcon(newimg);
 		    arrayBtn[x].setIcon(whitecircles);
 		}
 		else if(a.board[b][c] == -1){
 		    ImageIcon blackcircles = new ImageIcon("./blackcircle.png");
+		    Image image = blackcircles.getImage();
+		    Image newimg = image.getScaledInstance(50, 50, java.awt.Image.SCALE_SMOOTH);
+		    blackcircles = new ImageIcon(newimg);
 		    arrayBtn[x].setIcon(blackcircles);
 		    // arrayBtn[x].repaint();
 		}
@@ -214,10 +232,16 @@ public class Puzzle extends JFrame implements ActionListener{
 		arrayBtn[x].setBackground(Color.GREEN);
 		if(a.board[b][c] == 1){
 		    ImageIcon whitecircles = new ImageIcon("./whitecircle.jpg");
+		    Image image = whitecircles.getImage();
+		    Image newimg = image.getScaledInstance(50, 50, java.awt.Image.SCALE_SMOOTH);
+		    whitecircles = new ImageIcon(newimg);
 		    arrayBtn[x].setIcon(whitecircles);
 		}
 		else if(a.board[b][c] == -1){
 		    ImageIcon blackcircles = new ImageIcon("./blackcircle.png");
+		    Image image = blackcircles.getImage();
+		    Image newimg = image.getScaledInstance(50, 50, java.awt.Image.SCALE_SMOOTH);
+		    blackcircles = new ImageIcon(newimg);
 		    arrayBtn[x].setIcon(blackcircles);
 		    // arrayBtn[x].repaint();
 		}
@@ -245,3 +269,7 @@ public class Puzzle extends JFrame implements ActionListener{
 
 //button.setBackground(Color.RED);
 //button.setOpaque(true);
+/*
+Image img = icon.getImage() ;  
+Image newimg = img.getScaledInstance( NEW_WIDTH, NEW_HEIGHT,  java.awt.Image.SCALE_SMOOTH ) ;  
+icon = new ImageIcon( newimg );*/
