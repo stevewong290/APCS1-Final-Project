@@ -7,16 +7,19 @@ public class Othello{
 	if(white == 0 || black == 0|| counter == 2 || empty == 0){
 	    if (black > white){
 		System.out.println("black Wins");
+		return true;
 	    }
 	    else if(black == white){
 		System.out.println("tied");
+		return true;
 	    }
 	    else{
 		System.out.println("white wins");
-            }
-	    return true;
-        }
-	else return false;
+		return true;
+	    }
+	   
+	}
+	return false;
     }
     public Othello(){
 	restartBoard("blacks");
@@ -39,7 +42,6 @@ public class Othello{
         }
 	if(first =="blacks"){
 	    if(turn % 2 == 1){
-		System.out.println("black's turn");
 		for(int x = 0; x < 8; x++){
 		    for(int y = 0; y < 8; y++){
 			if (board[x][y] == -1){
@@ -49,7 +51,6 @@ public class Othello{
 		}
 	    }
 	    else{
-		System.out.println("whites's turn");
 		for(int x = 0; x < 8; x++){
 		    for(int y = 0; y < 8; y++){
 			if (board[x][y] == 1){
@@ -61,7 +62,6 @@ public class Othello{
 	}
 	else{
 	    if(turn % 2 == 1){
-		System.out.println("whites's turn");
 		for(int x = 0; x < 8; x++){
 		    for(int y = 0; y < 8; y++){
 			if (board[x][y] == 1){
@@ -71,7 +71,6 @@ public class Othello{
 		}
 	    }
 	    else{
-		System.out.println("black's turn");
 		for(int x = 0; x < 8; x++){
 		    for(int y = 0; y < 8; y++){
 			if (board[x][y] == -1){
@@ -510,6 +509,15 @@ public class Othello{
 		}
 	    }
 	}
+    }
+    public int getWhite(){
+	return white;
+    }
+    public int getBlack(){
+	return black;
+    }
+    public int getTurn(){
+	return turn;
     }
     public String toString(){
 	String s = "";
