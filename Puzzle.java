@@ -13,6 +13,7 @@ public class Puzzle extends JFrame implements ActionListener{
 
     private static JButton[] arrayBtn;
     private static JButton[] arrayBtn2;
+    private static JLabel textarea1, textarea2, textarea3;
     Othello a = new Othello();
     public Puzzle(){
       
@@ -128,11 +129,11 @@ public class Puzzle extends JFrame implements ActionListener{
     
 
 	panel3.setLayout(new BorderLayout());
-	JLabel textarea1 = new JLabel("Black Pieces: " +  a.black);
+	textarea1 = new JLabel("Black Pieces: " +  a.getBlack());
 	//	textarea1.addActionCommand("add");
-	JLabel textarea2 = new JLabel("White Pieces: " + a.white);
+	textarea2 = new JLabel("White Pieces: " + a.getWhite());
   
-	JLabel textarea3 = new JLabel("Turns: " + a.turn);
+	textarea3 = new JLabel("Turn: " + a.getTurn());
 
    
 	panel3.add(textarea1, BorderLayout.NORTH);
@@ -185,6 +186,14 @@ public class Puzzle extends JFrame implements ActionListener{
 		arrayBtn2[0].repaint();
 		arrayBtn[1].repaint();
 	    }
+	     textarea1.setText("Black Pieces: " +  a.getBlack());
+	    
+	    textarea2.setText("White Pieces: " + a.getWhite());
+  
+	    textarea3.setText("Turn: " + a.getTurn());
+	    textarea1.repaint();
+	    textarea2.repaint();
+	    textarea3.repaint();
 	    System.out.println(a);
 	    /*   for(int x = 0; x < arrayBtn.length;x++){
 		 arrayBtn[x].repaint();
@@ -224,6 +233,15 @@ public class Puzzle extends JFrame implements ActionListener{
 		arrayBtn2[1].repaint();
 		arrayBtn2[0].repaint();
 	    }
+	    textarea1.setText("Black Pieces: " +  a.getBlack());
+	    
+	    textarea2.setText("White Pieces: " + a.getWhite());
+  
+	    textarea3.setText("Turn: " + a.getTurn());
+	    
+	    textarea1.repaint();
+	    textarea2.repaint();
+	    textarea3.repaint();
 	    System.out.println(a);
 	}
 	if(event.equals("donothing")){
@@ -261,6 +279,25 @@ public class Puzzle extends JFrame implements ActionListener{
 		arrayBtn2[0].repaint();
 		arrayBtn2[1].repaint();
 	    }
+	    textarea1.setText("Black Pieces: " +  a.getBlack());
+
+	    textarea2.setText("White Pieces: " + a.getWhite());
+  
+	    textarea3.setText("Turn: " + a.getTurn());
+	    textarea1.repaint();
+	    textarea2.repaint();
+	    textarea3.repaint();
+	    if (a.endgame() == true) {
+		if (a.getWhite() > a.getBlack()) {
+		    Puzzle.infoBox("White Wins!");
+		}
+		else if (a.getBlack() > a.getWhite()) {
+		    Puzzle.infoBox("Black Wins!");
+		}
+		else {
+		    Puzzle.infoBox("Tie Game");
+		}
+	    }
 	    //  repaint();
 	    System.out.println(a);
 	}
@@ -268,6 +305,9 @@ public class Puzzle extends JFrame implements ActionListener{
 	//  black++;
 	//  textarea1.repaint();
 	//	}
+    }
+    public static void infoBox(String infoMessage) {
+        JOptionPane.showMessageDialog(null, infoMessage, "Winner!", JOptionPane.INFORMATION_MESSAGE);
     }
     public static void main(String[] args) {
 	Puzzle p = new Puzzle();
