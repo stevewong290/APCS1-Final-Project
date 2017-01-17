@@ -3,7 +3,7 @@ public class Othello{
     public boolean[][] highlighter = new boolean[8][8];
     public int turn, white, black, counter, empty;
     public String first;
-    public void endgame(){
+    public boolean endgame(){
 	if(white == 0 || black == 0|| counter == 2 || empty == 0){
 	    if (black > white){
 		System.out.println("black Wins");
@@ -13,8 +13,10 @@ public class Othello{
 	    }
 	    else{
 		System.out.println("white wins");
+            }
+	    return true;
         }
-    }
+	else return false;
     }
     public Othello(){
 	restartBoard("blacks");
