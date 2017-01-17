@@ -37,6 +37,7 @@ public class Othello{
         }
 	if(first =="blacks"){
 	    if(turn % 2 == 1){
+		System.out.println("black's turn");
 		for(int x = 0; x < 8; x++){
 		    for(int y = 0; y < 8; y++){
 			if (board[x][y] == -1){
@@ -46,6 +47,7 @@ public class Othello{
 		}
 	    }
 	    else{
+		System.out.println("whites's turn");
 		for(int x = 0; x < 8; x++){
 		    for(int y = 0; y < 8; y++){
 			if (board[x][y] == 1){
@@ -57,6 +59,7 @@ public class Othello{
 	}
 	else{
 	    if(turn % 2 == 1){
+		System.out.println("whites's turn");
 		for(int x = 0; x < 8; x++){
 		    for(int y = 0; y < 8; y++){
 			if (board[x][y] == 1){
@@ -66,6 +69,7 @@ public class Othello{
 		}
 	    }
 	    else{
+		System.out.println("black's turn");
 		for(int x = 0; x < 8; x++){
 		    for(int y = 0; y < 8; y++){
 			if (board[x][y] == -1){
